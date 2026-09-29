@@ -1,52 +1,199 @@
-body {
-    background: #121212;
-    color: #fff;
-    font-family: sans-serif;
-    text-align: center;
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.hero {
-    padding: 60px 20px;
-    background: #1e1e24;
+body {
+    background-color: #121212;
+    color: #ffffff;
+    height: 100vh;
+    overflow: hidden;
 }
 
-h1 {
+.app-container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #1e1e24;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    border-right: 1px solid #2d2d35;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
     color: #4CAF50;
-    font-size: 2.5rem;
+    margin-bottom: 30px;
 }
 
-.btn {
-    display: inline-block;
-    padding: 12px 30px;
+.logo-icon {
+    font-size: 28px;
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex-grow: 1;
+}
+
+.nav-btn {
+    background: transparent;
+    border: none;
+    color: #a0a0a0;
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-btn:hover, .nav-btn.active {
+    background-color: #2e7d32;
+    color: #ffffff;
+}
+
+/* User Profile Sidebar */
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 15px;
+    border-top: 1px solid #2d2d35;
+}
+
+.avatar {
+    border-radius: 6px;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.username {
+    font-weight: bold;
+}
+
+.status-online {
+    font-size: 12px;
+    color: #4CAF50;
+}
+
+/* Main Content */
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    padding: 25px;
+}
+
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.download-app-btn {
     background: #2e7d32;
     color: #fff;
-    text-decoration: none;
+    padding: 10px 18px;
     border-radius: 6px;
+    text-decoration: none;
     font-weight: bold;
-    margin-top: 15px;
+    transition: 0.2s;
 }
 
-.btn:hover {
+.download-app-btn:hover {
     background: #388e3c;
 }
 
-.cards {
+/* Tabs */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Hero Banner */
+.hero-banner {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1627856013091-fed6e4e30025?q=80&w=1000') center/cover;
+    border-radius: 12px;
+    padding: 40px;
+    margin-bottom: 30px;
+}
+
+.launch-control {
     display: flex;
-    justify-content: center;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.version-select, .input-field {
+    background: #1e1e24;
+    color: #fff;
+    border: 1px solid #3d3d45;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.btn-play {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 35px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-play:hover {
+    background: #45a049;
+    transform: scale(1.03);
+}
+
+/* Cards Grid */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 20px;
-    padding: 40px 20px;
 }
 
 .card {
-    background: #1e1e24;
+    background-color: #1e1e24;
     padding: 20px;
-    border-radius: 8px;
-    width: 200px;
-    text-align: left;
+    border-radius: 10px;
+    border: 1px solid #2d2d35;
+}
+
+.card-icon {
+    font-size: 24px;
+    color: #4CAF50;
+    margin-bottom: 10px;
 }
 
 .card h3 {
     color: #81c784;
-    margin-top: 0;
+    margin-bottom: 8px;
 }

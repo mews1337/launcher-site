@@ -3,24 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minecraft Launcher</title>
+    <title>Minecraft Launcher Web Dashboard</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="hero">
-        <h1>Minecraft Launcher</h1>
-        <p>Швидкий лаунчер з підтримкою Vanilla, Fabric та Forge!</p>
-        <a href="https://online-launcher.onrender.com/download" class="btn">Завантажити (.exe)</a>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fa-solid fa-cube logo-icon"></i>
+                <h2>MC LAUNCHER</h2>
+            </div>
+            <nav class="nav-menu">
+                <button class="nav-btn active" onclick="switchTab('home')"><i class="fa-solid fa-house"></i> Головна</button>
+                <button class="nav-btn" onclick="switchTab('play')"><i class="fa-solid fa-gamepad"></i> Грати</button>
+                <button class="nav-btn" onclick="switchTab('versions')"><i class="fa-solid fa-code-branch"></i> Версії</button>
+                <button class="nav-btn" onclick="switchTab('mods')"><i class="fa-solid fa-puzzle-piece"></i> Моди</button>
+                <button class="nav-btn" onclick="switchTab('servers')"><i class="fa-solid fa-server"></i> Сервери</button>
+                <button class="nav-btn" onclick="switchTab('settings')"><i class="fa-solid fa-gear"></i> Налаштування</button>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <img src="https://mc-heads.net/avatar/Steve/40" alt="Avatar" class="avatar">
+                    <div class="user-info">
+                        <span class="username">Player</span>
+                        <span class="status-online">● В мережі</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Header Bar -->
+            <header class="top-header">
+                <div class="server-status">
+                    <span class="status-badge"></span> Сервер Офлайн (PING)
+                </div>
+                <div class="header-actions">
+                    <a href="https://online-launcher.onrender.com/download" class="download-app-btn"><i class="fa-solid fa-download"></i> Завантажити .EXE</a>
+                </div>
+            </header>
+
+            <!-- TAB: HOME -->
+            <section id="tab-home" class="tab-content active">
+                <div class="hero-banner">
+                    <div class="hero-overlay">
+                        <h1>Готовий до нових пригоди?</h1>
+                        <p>Швидкий лаунчер з підтримкою Vanilla, Fabric та Forge!</p>
+                        <div class="launch-control">
+                            <select class="version-select">
+                                <option>1.21.1 (Vanilla)</option>
+                                <option>1.20.1 (Fabric)</option>
+                                <option>1.16.5 (Forge)</option>
+                            </select>
+                            <button class="btn-play" onclick="launchGame()"><i class="fa-solid fa-play"></i> ГРАТИ</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Existing Cards Preserved & Enhanced -->
+                <div class="cards-grid">
+                    <div class="card">
+                        <i class="fa-solid fa-bolt card-icon"></i>
+                        <h3>Оптимізація</h3>
+                        <p>Працює на Java 21 з максимальною продуктивністю та високим FPS.</p>
+                    </div>
+                    <div class="card">
+                        <i class="fa-solid fa-cubes card-icon"></i>
+                        <h3>Моди</h3>
+                        <p>Повна підтримка Fabric, Forge та NeoForge мод-паків.</p>
+                    </div>
+                    <div class="card">
+                        <i class="fa-solid fa-shield-halved card-icon"></i>
+                        <h3>Безпека</h3>
+                        <p>Захист даних та авто-оновлення всіх необхідних бібілотек.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB: PLAY -->
+            <section id="tab-play" class="tab-content">
+                <h2>Налаштування Запуску</h2>
+                <div class="play-config-box">
+                    <div class="form-group">
+                        <label>Нікнейм гравця</label>
+                        <input type="text" value="Player" class="input-field">
+                    </div>
+                    <div class="form-group">
+                        <label>ОЗП (RAM)</label>
+                        <select class="input-field">
+                            <option>2 GB</option>
+                            <option selected>4 GB</option>
+                            <option>8 GB</option>
+                        </select>
+                    </div>
+                    <button class="btn-play large-play" onclick="launchGame()">ЗАПУСТИТИ MINECRAFT</button>
+                </div>
+            </section>
+
+            <!-- TAB: VERSIONS -->
+            <section id="tab-versions" class="tab-content">
+                <h2>Версії Minecraft</h2>
+                <div class="version-list">
+                    <div class="version-item"><span>1.21.1</span> <span class="badge release">Release</span></div>
+                    <div class="version-item"><span>1.20.4</span> <span class="badge release">Release</span></div>
+                    <div class="version-item"><span>1.16.5</span> <span class="badge release">Release</span></div>
+                </div>
+            </section>
+
+            <!-- OTHER TABS PLACEHOLDERS -->
+            <section id="tab-mods" class="tab-content"><h2>Менеджер Модів</h2><p>Розділ у розробці...</p></section>
+            <section id="tab-servers" class="tab-content"><h2>Список Серверів</h2><p>Розділ у розробці...</p></section>
+            <section id="tab-settings" class="tab-content"><h2>Налаштування</h2><p>Розділ у розробці...</p></section>
+        </main>
     </div>
-    <div class="cards">
-        <div class="card">
-            <h3>⚡ Оптимізація</h3>
-            <p>Працює на Java 21</p>
-        </div>
-        <div class="card">
-            <h3>🧩 Моди</h3>
-            <p>Підтримка Fabric / Forge</p>
-        </div>
-    </div>
+
+    <script>
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active'));
+            
+            document.getElementById('tab-' + tabName).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+
+        function launchGame() {
+            alert('Спроба запуску Minecraft! Якщо відкритий на ПК десктопний лаунчер — гра запуститься.');
+        }
+    </script>
 </body>
 </html>
