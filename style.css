@@ -327,3 +327,47 @@ body {
     justify-content: flex-end;
     margin-top: 10px;
 }
+/* Download Banner Styles */
+.download-banner {
+    background: linear-gradient(135deg, #1e1e24 0%, #2a2a35 100%);
+    border: 1px solid #4CAF50;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(76, 175, 80, 0.15);
+}
+
+.banner-info h3 {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 6px;
+}
+
+.banner-info p {
+    font-size: 14px;
+    color: #aaa;
+}
+
+.btn-download {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.btn-download:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(76, 175, 80, 0.3);
+}
