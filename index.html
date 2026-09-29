@@ -204,3 +204,90 @@
     </script>
 </body>
 </html>
+<!-- TAB: SERVERS -->
+<section id="tab-servers" class="tab-content">
+    <div class="section-header">
+        <h2>Список Серверів</h2>
+        <button class="btn-primary-sm" onclick="alert('Додавання сервера')"><i class="fa-solid fa-plus"></i> Додати сервер</button>
+    </div>
+
+    <div class="version-cards-grid">
+        <div class="version-card server-card">
+            <div class="version-info">
+                <i class="fa-solid fa-server version-icon" style="color: #4CAF50;"></i>
+                <div>
+                    <h4>Vanilla Survival</h4>
+                    <span class="version-date">IP: play.my-server.com</span>
+                </div>
+            </div>
+            <div class="server-status-info">
+                <span class="online-count"><i class="fa-solid fa-users"></i> 142/200</span>
+                <span class="ping-badge"><i class="fa-solid fa-signal"></i> 24ms</span>
+            </div>
+            <div class="version-actions">
+                <button class="btn-secondary" onclick="navigator.clipboard.writeText('play.my-server.com'); alert('IP скопійовано!');"><i class="fa-solid fa-copy"></i> Скопіювати IP</button>
+                <button class="btn-play-sm" onclick="launchGame()"><i class="fa-solid fa-play"></i> Увійти</button>
+            </div>
+        </div>
+
+        <div class="version-card server-card">
+            <div class="version-info">
+                <i class="fa-solid fa-fire version-icon" style="color: #ff9800;"></i>
+                <div>
+                    <h4>Anarchy Server</h4>
+                    <span class="version-date">IP: anarchy.mc.net</span>
+                </div>
+            </div>
+            <div class="server-status-info">
+                <span class="online-count"><i class="fa-solid fa-users"></i> 89/100</span>
+                <span class="ping-badge"><i class="fa-solid fa-signal"></i> 45ms</span>
+            </div>
+            <div class="version-actions">
+                <button class="btn-secondary" onclick="navigator.clipboard.writeText('anarchy.mc.net'); alert('IP скопійовано!');"><i class="fa-solid fa-copy"></i> Скопіювати IP</button>
+                <button class="btn-play-sm" onclick="launchGame()"><i class="fa-solid fa-play"></i> Увійти</button>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- TAB: SETTINGS -->
+<section id="tab-settings" class="tab-content">
+    <div class="section-header">
+        <h2>Налаштування Лаунчера</h2>
+    </div>
+
+    <div class="settings-box">
+        <div class="setting-item">
+            <div>
+                <h4>Шлях до гри Minecraft</h4>
+                <p class="setting-desc">Папка, де зберігаються клієнти та моди (.minecraft)</p>
+            </div>
+            <input type="text" value="C:\Users\User\AppData\Roaming\.minecraft" class="input-field path-input">
+        </div>
+
+        <div class="setting-item">
+            <div>
+                <h4>Автоматично закривати лаунчер</h4>
+                <p class="setting-desc">Закривати вікно після запуску гри</p>
+            </div>
+            <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider round"></span>
+            </label>
+        </div>
+
+        <div class="setting-item">
+            <div>
+                <h4>Автооновлення модів</h4>
+                <p class="setting-desc">Перевіряти наявність оновлень при кожному запуску</p>
+            </div>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+
+        <div class="setting-actions">
+            <button class="btn-primary-sm" onclick="alert('Налаштування збережено!')"><i class="fa-solid fa-floppy-disk"></i> Зберегти налаштування</button>
+        </div>
+    </div>
+</section>

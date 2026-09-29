@@ -288,3 +288,42 @@ body {
 
 .btn-play-sm { background: #2e7d32; color: #fff; }
 .btn-play-sm:hover { background: #388e3c; }
+/* Settings Manager Styles */
+.settings-box {
+    background-color: #1e1e24;
+    border: 1px solid #2d2d35;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #2d2d35;
+}
+
+.setting-item:last-child {
+    border-bottom: none;
+}
+
+.setting-desc {
+    font-size: 13px;
+    color: #888;
+    margin-top: 4px;
+}
+
+.path-input {
+    width: 50%;
+    font-size: 14px;
+}
+
+.setting-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
