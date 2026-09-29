@@ -104,20 +104,69 @@
             </section>
 
             <!-- TAB: VERSIONS -->
-            <section id="tab-versions" class="tab-content">
-                <h2>Версії Minecraft</h2>
-                <div class="version-list">
-                    <div class="version-item"><span>1.21.1</span> <span class="badge release">Release</span></div>
-                    <div class="version-item"><span>1.20.4</span> <span class="badge release">Release</span></div>
-                    <div class="version-item"><span>1.16.5</span> <span class="badge release">Release</span></div>
-                </div>
-            </section>
+<section id="tab-versions" class="tab-content">
+    <div class="section-header">
+        <h2>Менеджер Версій Minecraft</h2>
+        <div class="search-filter-bar">
+            <input type="text" id="versionSearch" placeholder="Пошук версії..." onkeyup="filterVersions()" class="input-field search-input">
+            <select id="loaderFilter" onchange="filterVersions()" class="input-field">
+                <option value="all">Усі типи</option>
+                <option value="release">Releases</option>
+                <option value="fabric">Fabric</option>
+                <option value="forge">Forge</option>
+            </select>
+        </div>
+    </div>
 
-            <!-- OTHER TABS PLACEHOLDERS -->
-            <section id="tab-mods" class="tab-content"><h2>Менеджер Модів</h2><p>Розділ у розробці...</p></section>
-            <section id="tab-servers" class="tab-content"><h2>Список Серверів</h2><p>Розділ у розробці...</p></section>
-            <section id="tab-settings" class="tab-content"><h2>Налаштування</h2><p>Розділ у розробці...</p></section>
-        </main>
+    <div class="version-cards-grid" id="versionsContainer">
+        <!-- Версія 1.21.1 -->
+        <div class="version-card" data-type="release" data-name="1.21.1">
+            <div class="version-info">
+                <i class="fa-solid fa-cube version-icon"></i>
+                <div>
+                    <h4>Minecraft 1.21.1</h4>
+                    <span class="badge release">Release</span>
+                    <span class="version-date">Останній реліз</span>
+                </div>
+            </div>
+            <div class="version-actions">
+                <button class="btn-secondary" onclick="alert('Версія вже завантажена')">Встановлено</button>
+                <button class="btn-play-sm" onclick="launchGame()"><i class="fa-solid fa-play"></i></button>
+            </div>
+        </div>
+
+        <!-- Версія 1.20.1 Fabric -->
+        <div class="version-card" data-type="fabric" data-name="1.20.1 fabric">
+            <div class="version-info">
+                <i class="fa-solid fa-scroll version-icon fabric-icon"></i>
+                <div>
+                    <h4>1.20.1 (Fabric)</h4>
+                    <span class="badge fabric">Modded</span>
+                    <span class="version-date">Для модів</span>
+                </div>
+            </div>
+            <div class="version-actions">
+                <button class="btn-primary-sm" onclick="alert('Завантаження Fabric 1.20.1...')"><i class="fa-solid fa-download"></i> Встановити</button>
+            </div>
+        </div>
+
+        <!-- Версія 1.16.5 Forge -->
+        <div class="version-card" data-type="forge" data-name="1.16.5 forge">
+            <div class="version-info">
+                <i class="fa-solid fa-hammer version-icon forge-icon"></i>
+                <div>
+                    <h4>1.16.5 (Forge)</h4>
+                    <span class="badge forge">Modded</span>
+                    <span class="version-date">Класичні моди</span>
+                </div>
+            </div>
+            <div class="version-actions">
+                <button class="btn-primary-sm" onclick="alert('Завантаження Forge 1.16.5...')"><i class="fa-solid fa-download"></i> Встановити</button>
+            </div>
+        </div>
+    </div>
+</section>
+</main>
     </div>
 
     <script>
@@ -131,6 +180,26 @@
 
         function launchGame() {
             alert('Спроба запуску Minecraft! Якщо відкритий на ПК десктопний лаунчер — гра запуститься.');
+        }
+
+        function filterVersions() {
+            const search = document.getElementById('versionSearch').value.toLowerCase();
+            const loader = document.getElementById('loaderFilter').value;
+            const cards = document.querySelectorAll('.version-card');
+
+            cards.forEach(card => {
+                const name = card.getAttribute('data-name').toLowerCase();
+                const type = card.getAttribute('data-type');
+                
+                const matchesSearch = name.includes(search);
+                const matchesLoader = (loader === 'all') || (type === loader);
+
+                if (matchesSearch && matchesLoader) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
         }
     </script>
 </body>
